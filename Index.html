@@ -46,8 +46,8 @@
    }
 
    table, th, td {
-     border. 1px solid #ccc;
-     text-align: center.
+     border: 1px solid #ccc;
+     text-align: center;
    }
 
    th, td {
@@ -57,4 +57,54 @@
    .delete {
      background: red;
      padding: 5px;
-     color. white
+     color: white;
+     cursor: pointer;
+     border: none;
+   }
+  </style>
+</head>
+<body>
+
+<div class="container">
+ <h1>Controle de Estoque</h1>
+
+ <input type="text" id="produto" placeholder="Nome do produto">
+ <input type="number" id="quantidade" placeholder="Quantidade">
+
+ <button onclick="aducionarProduto()">Adicionar Produto</button>
+
+ <table>
+   <thead>
+     <tr>
+       <th>Produto</th>
+       <th>Quantidade</th>
+       <th>Ação</th>
+     </tr>
+   </thead>
+   <tbody id="tabelaEstoque"></tbody>
+ </table>
+</div>
+
+<script>
+ let estoque = JSON.parse(localStorage.getltem("estoque")) || [];
+
+ function salvar() {
+   localStorage.setltem("estoque", JSON.stringify(estoque));
+
+ }
+
+ function renderizar() {
+   let tabela = document.getElementByld("tabelaEstoque");
+   tabela.innerHTML = '''';
+
+   estoque.forEach((item, index) => {
+     tabela.innerHTML +=
+       <tr>
+        <td>${item.nome}</td>
+        <td>${item.quantidade}</td>
+        <td><button class=" delete" onclick ="remover(${index})">X</button></td>
+       </tr>
+            
+                   
+
+                   
