@@ -104,7 +104,37 @@
         <td>${item.quantidade}</td>
         <td><button class=" delete" onclick ="remover(${index})">X</button></td>
        </tr>
-            
-                   
+     ’;
+ });
+}
+
+function adicionarProduto() {
+  let nome = document.getElementByld("produto").value;
+  let quantidade = document.getElementByld("quantidade").value;
+
+  if (nome === '''' || quantidade === '''') {
+     alert("Preencha todos os campos!");
+     return;
+   }
+
+   estoque.push({ nome, quantidade });
+   salvar();
+   renderizar();
+
+   document.getElementByld("produto").value = '''';
+   document.getElementByld("quantidade").value = '''';
+ }
+
+ function remover(index) {
+   estoque.splice(index, 1);
+   salvar();
+   renderizar();
+ }
+
+ renderizar();
+</script>
+
+</body>
+</html>
 
                    
